@@ -4,7 +4,7 @@
 #
 Name     : R-languageserver
 Version  : 0.3.5
-Release  : 5
+Release  : 6
 URL      : https://cran.r-project.org/src/contrib/languageserver_0.3.5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/languageserver_0.3.5.tar.gz
 Summary  : Language Server Protocol
@@ -40,13 +40,8 @@ BuildRequires : R-xmlparsedata
 BuildRequires : buildreq-R
 
 %description
-# languageserver: An implementation of the Language Server Protocol for R
-[![Gitter](https://badges.gitter.im/REditorSupport/community.svg)](https://gitter.im/REditorSupport/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-[![Build Status](https://travis-ci.org/REditorSupport/languageserver.svg?branch=master)](https://travis-ci.org/REditorSupport/languageserver)
-[![Github Action](https://github.com/REditorSupport/languageserver/workflows/build/badge.svg?branch=master)](https://github.com/REditorSupport/languageserver)
-[![codecov](https://codecov.io/gh/REditorSupport/languageserver/branch/master/graph/badge.svg)](https://codecov.io/gh/REditorSupport/languageserver)
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/languageserver)](https://cran.r-project.org/package=languageserver)
-[![](http://cranlogs.r-pkg.org/badges/grand-total/languageserver)](https://cran.r-project.org/package=languageserver)
+for R. The Language Server protocol is used by an editor client to
+    integrate features like auto completion. See
 
 %package lib
 Summary: lib components for the R-languageserver package.
@@ -58,21 +53,22 @@ lib components for the R-languageserver package.
 
 %prep
 %setup -q -c -n languageserver
+cd %{_builddir}/languageserver
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1584894064
+export SOURCE_DATE_EPOCH=1589827807
 
 %install
-export SOURCE_DATE_EPOCH=1584894064
+export SOURCE_DATE_EPOCH=1589827807
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
