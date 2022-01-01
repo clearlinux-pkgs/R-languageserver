@@ -4,7 +4,7 @@
 #
 Name     : R-languageserver
 Version  : 0.3.12
-Release  : 25
+Release  : 26
 URL      : https://cran.r-project.org/src/contrib/languageserver_0.3.12.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/languageserver_0.3.12.tar.gz
 Summary  : Language Server Protocol
@@ -28,6 +28,7 @@ BuildRequires : R-collections
 BuildRequires : R-fs
 BuildRequires : R-jsonlite
 BuildRequires : R-lintr
+BuildRequires : R-mockery
 BuildRequires : R-roxygen2
 BuildRequires : R-stringi
 BuildRequires : R-styler
@@ -56,10 +57,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1634749747
+export SOURCE_DATE_EPOCH=1641043894
 
 %install
-export SOURCE_DATE_EPOCH=1634749747
+export SOURCE_DATE_EPOCH=1641043894
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -153,3 +154,5 @@ R CMD check --no-manual --no-examples --no-codoc languageserver || :
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/R/library/languageserver/libs/languageserver.so
+/usr/lib64/R/library/languageserver/libs/languageserver.so.avx2
+/usr/lib64/R/library/languageserver/libs/languageserver.so.avx512
