@@ -4,7 +4,7 @@
 #
 Name     : R-languageserver
 Version  : 0.3.13
-Release  : 30
+Release  : 31
 URL      : https://cran.r-project.org/src/contrib/languageserver_0.3.13.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/languageserver_0.3.13.tar.gz
 Summary  : Language Server Protocol
